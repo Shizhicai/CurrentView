@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ASMIdeaPluginConfiguration">
+    <asm skipDebug="false" skipFrames="false" skipCode="false" expandFrames="false" />
+    <groovy codeStyle="LEGACY" />
+  </component>
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/project/CurrentView/app/src/main/res/drawable/shape_button_circular.xml" value="0.2135" />
+        <entry key="..\:/project/CurrentView/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/project/CurrentView/app/src/main/res/layout/activity_scroll_view.xml" value="0.25" />
+        <entry key="..\:/project/CurrentView/app/src/main/res/layout/activity_test_decoration.xml" value="0.36614583333333334" />
+        <entry key="..\:/project/CurrentView/app/src/main/res/layout/activity_text.xml" value="0.36614583333333334" />
+        <entry key="..\:/project/CurrentView/app/src/main/res/layout/fragment_test.xml" value="0.36614583333333334" />
+        <entry key="..\:/project/CurrentView/app/src/main/res/layout/item_test.xml" value="0.36614583333333334" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
