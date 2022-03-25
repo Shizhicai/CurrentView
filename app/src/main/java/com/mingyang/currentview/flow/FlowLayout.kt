@@ -1,10 +1,9 @@
-package com.mingyang.currentview.widget
+package com.mingyang.currentview.flow
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.children
 import java.util.*
 
 /**
