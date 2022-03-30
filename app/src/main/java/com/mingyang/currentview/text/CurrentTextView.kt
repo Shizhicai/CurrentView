@@ -1,11 +1,14 @@
 package com.mingyang.currentview.text
 
+import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Rect
 import android.util.AttributeSet
+import android.util.Log
+import android.view.animation.LinearInterpolator
 import androidx.appcompat.widget.AppCompatTextView
 
 class CurrentTextView : AppCompatTextView {
@@ -37,7 +40,7 @@ class CurrentTextView : AppCompatTextView {
         mLinePaint.strokeWidth = 5f
 //        val animator = ValueAnimator.ofFloat(0f, 1f)
 //        animator.interpolator = LinearInterpolator()
-//        animator.duration = 10000
+//        animator.duration = 3000
 //        animator.addUpdateListener {
 //            percentage = it.animatedValue as Float
 //            // 重新绘制
@@ -59,25 +62,34 @@ class CurrentTextView : AppCompatTextView {
             val measuredHeight = measuredHeight
             val measuredWidth = measuredWidth
             val rect = Rect()
+
             mPaint.getTextBounds(text, 0, text.length, rect)
             // 偏移量
             val offsetx = (rect.left + rect.right) / 2
             val offsety = (rect.top + rect.bottom) / 2
             val textWidth = mPaint.measureText(text)
             canvas.save()
-            val left: Float
-            val right: Float
+            var blackStart: Float
+            var blackEnd: Float
+            var redStart: Float
+            var redEnd: Float
             if (leftToRight) {
-                left = measuredWidth / 2f - textWidth / 2f
-                right = measuredWidth / 2f - textWidth / 2f + textWidth * percentage
+                // 从左到右 红-> 黑
+                redStart = measuredWidth / 2f - textWidth / 2f
+                redEnd = measuredWidth / 2f - textWidth / 2f + textWidth * percentage
+                blackStart = redEnd
+                blackEnd = measuredWidth / 2f - textWidth / 2f + textWidth
             } else {
-                left = measuredWidth / 2f - textWidth / 2f + textWidth * percentage
-                right = measuredWidth / 2f - textWidth / 2f
+                // 从左到右 黑 -> 红
+                blackStart = measuredWidth / 2f - textWidth / 2f
+                blackEnd = measuredWidth / 2f - textWidth / 2f + textWidth * percentage
+                redStart = blackEnd
+                redEnd = measuredWidth / 2f - textWidth / 2f + textWidth
             }
             clipRect(
-                left,
+                redStart,
                 0f,
-                right,
+                redEnd,
                 measuredHeight.toFloat()
             )
             this.drawText(
@@ -91,9 +103,9 @@ class CurrentTextView : AppCompatTextView {
             canvas.restore()
             canvas.save()
             clipRect(
-                right,
+                blackStart,
                 0f,
-                left,
+                blackEnd,
                 measuredHeight.toFloat()
             )
             this.drawText(
