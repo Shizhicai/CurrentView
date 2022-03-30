@@ -1,22 +1,25 @@
 package com.mingyang.currentview
 
 import android.os.Bundle
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import com.mingyang.currentview.fish.FishDrawable
+import androidx.databinding.DataBindingUtil
+import com.mingyang.base.BaseServiceLoader
+import com.mingyang.common.IWebViewService
+import com.mingyang.currentview.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private var mDataBind: ActivityMainBinding? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-//        initClick()
-        val ivFish = findViewById<ImageView>(R.id.iv_fish)
-        ivFish.setImageDrawable(FishDrawable())
+        mDataBind = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        mDataBind?.apply {
+            btnWebview.setOnClickListener {
+                val webService = BaseServiceLoader.load(IWebViewService::class.java)
+                webService?.startWebView(this@MainActivity, "https://www.baidu.com/", "测试")
+            }
+        }
     }
 
-    private fun initClick() {
-//        findViewById<Button>(R.id.btn_scroll).setOnClickListener {
-//            startActivity(Intent(this, ScrollViewActivity::class.java))
-//        }
-    }
+
 }

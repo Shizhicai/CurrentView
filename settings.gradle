@@ -24,3 +24,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "CurrentView"
 include ':app'
+
+include ':webview'
+include ':base'
+include ':common'

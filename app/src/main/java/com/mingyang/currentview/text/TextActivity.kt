@@ -37,6 +37,9 @@ class TextActivity : AppCompatActivity() {
         }
         vp.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             var lastValue: Float = 0f
+
+            // 目标页面
+            var targetPosition: Int = -1
             override fun onPageScrolled(
                 position: Int,
                 positionOffset: Float,
@@ -46,6 +49,8 @@ class TextActivity : AppCompatActivity() {
                 if (positionOffset > 0 && lastValue != 0f) {
                     if (lastValue >= positionOffset) {
                         // 向左
+                        if (targetPosition == -1)
+                            targetPosition = currentPosition - 1
                         (llTab.getChildAt(currentPosition) as CurrentTextView).setPercentage(
                             positionOffset,
                             true
@@ -56,8 +61,10 @@ class TextActivity : AppCompatActivity() {
                                 false
                             )
                     } else {
-
                         // 向右
+                        // 目标页面首次
+                        if (targetPosition == -1)
+                            targetPosition = currentPosition + 1
                         (llTab.getChildAt(currentPosition) as CurrentTextView).setPercentage(
                             positionOffset,
                             false
@@ -89,15 +96,12 @@ class TextActivity : AppCompatActivity() {
                 if (state == 0) {
                     // 停止滑动
                     currentPosition = vp.currentItem
+                    targetPosition = -1
                     Log.e(
                         "测试",
                         "onPageScrollStateChanged $state $currentPosition"
                     )
                 }
-                Log.e(
-                    "测试",
-                    "onPageScrollStateChanged $state"
-                )
             }
 
         })
