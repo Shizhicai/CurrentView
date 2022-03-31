@@ -1,6 +1,7 @@
 package com.mingyang.webview.mainprocess
 
 import com.google.gson.Gson
+import com.mingyang.webview.ICallBackMainToWebPInterface
 import com.mingyang.webview.IWebViewPToMainPInterface
 import com.mingyang.webview.command.Command
 import java.util.*
@@ -8,6 +9,8 @@ import kotlin.collections.HashMap
 
 /**
  * 主线管理器
+ * 初始化时，获取所有定义好的指令，并存储
+ * 自身实现 IBind 接口
  */
 class MainProcessCommandManager : IWebViewPToMainPInterface.Stub {
     // 存储方法名称，和命令实体
@@ -36,12 +39,15 @@ class MainProcessCommandManager : IWebViewPToMainPInterface.Stub {
         }
     }
 
-    fun executeCommand(commandName: String, params: Map<*, *>) {
-        mCommands[commandName]?.execute(params)
+    fun executeCommand(commandName: String, params: Map<*, *>, callBack: ICallBackMainToWebPInterface?) {
+        mCommands[commandName]?.execute(params,callBack)
     }
 
-    override fun handleWebCommend(commandName: String, jsonParams: String) {
-        // TODO ？为什么要回调
-        getInstant().executeCommand(commandName, Gson().fromJson(jsonParams, Map::class.java))
+    override fun handleWebCommend(
+        commandName: String,
+        jsonParams: String,
+        callBack: ICallBackMainToWebPInterface?
+    ) {
+        getInstant().executeCommand(commandName, Gson().fromJson(jsonParams, Map::class.java),callBack)
     }
 }

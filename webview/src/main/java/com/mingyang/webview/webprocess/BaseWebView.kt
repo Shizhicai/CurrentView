@@ -61,9 +61,21 @@ class BaseWebView : WebView {
             if (bean != null) {
                 if (!TextUtils.isEmpty(bean.name)) {
                     WebViewProcessCommandDispatcher.getInstant()
-                        .executeCommend(bean.name, Gson().toJson(bean.param))
+                        .executeCommend(bean.name, Gson().toJson(bean.param),this)
                 }
             }
         }
+    }
+
+    /**
+     * 回调方法
+     */
+    fun handCallBack(callBackName: String, response: String) {
+        if (!TextUtils.isEmpty(callBackName) && !TextUtils.isEmpty(response))
+            post {
+                val jsCode = "javascript:xiangxuejs.callback('$callBackName',$response)"
+                Log.e("xxx", jsCode)
+                evaluateJavascript(jsCode, null)
+            }
     }
 }
