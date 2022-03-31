@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".behavior.BehaviorActivity">
+    tools:context=".widget.behavior.BehaviorActivity">
 
-    <com.mingyang.currentview.behavior.ScrollTestView
+    <com.mingyang.currentview.widget.behavior.ScrollTestView
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
@@ -16,6 +16,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="跟随移动"
-        app:layout_behavior=".behavior.DependsBehavior" />
+        app:layout_behavior=".widget.behavior.DependsBehavior" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

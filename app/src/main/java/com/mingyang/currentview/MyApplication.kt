@@ -1,11 +1,11 @@
 package com.mingyang.currentview
 
-import android.app.Application
 import com.kingja.loadsir.core.LoadSir
+import com.mingyang.base.BaseApplication
 import com.mingyang.base.loadsir.*
 
 
-class MyApplication : Application() {
+class MyApplication : BaseApplication() {
 
     override fun onCreate() {
         super.onCreate()

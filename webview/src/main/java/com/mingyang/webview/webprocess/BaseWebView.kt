@@ -45,6 +45,7 @@ class BaseWebView : WebView {
     private fun init() {
         WebViewDefaultSetting.getInstance().setSettings(this)
         addJavascriptInterface(this, "myWebView")
+        WebViewProcessCommandDispatcher.getInstant().initAidlConnection()
     }
 
     fun registerWebCallBack(webViewCallBack: WebViewCallBack) {
@@ -58,12 +59,9 @@ class BaseWebView : WebView {
         if (!TextUtils.isEmpty(json)) {
             val bean = Gson().fromJson(json, JsParam::class.java)
             if (bean != null) {
-                if ("showToast" == bean.name) {
-                    Toast.makeText(
-                        context,
-                        Gson().fromJson(bean.param, Map::class.java)["message"].toString(),
-                        Toast.LENGTH_SHORT
-                    ).show()
+                if (!TextUtils.isEmpty(bean.name)) {
+                    WebViewProcessCommandDispatcher.getInstant()
+                        .executeCommend(bean.name, Gson().toJson(bean.param))
                 }
             }
         }

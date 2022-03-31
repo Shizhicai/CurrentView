@@ -3,10 +3,14 @@
     package="com.mingyang.webview">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application>
-        <activity android:process=":webview"
+        <service android:name=".mainprocess.MainProcessCommandService" />
+
+        <activity
             android:name=".ui.WebViewActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:process=":webview" />
     </application>
 
 </manifest>

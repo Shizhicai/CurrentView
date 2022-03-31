@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.mingyang.currentview">
+    package="com.mingyang.currentview" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -14,27 +15,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Base"
-        tools:targetApi="n">
+        tools:targetApi="n" >
         <activity
-            android:name=".photo.PhotoActivity"
+            android:name=".WebPageActivity"
             android:exported="false" />
         <activity
-            android:name=".behavior.BehaviorActivity"
-            android:exported="true">
-
+            android:name=".widget.photo.PhotoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".widget.behavior.BehaviorActivity"
+            android:exported="true" >
         </activity>
         <activity
-            android:name=".text.TextActivity"
+            android:name=".widget.text.TextActivity"
             android:exported="true" />
         <activity
-            android:name=".decotation.TestDecorationActivity"
+            android:name=".widget.decotation.TestDecorationActivity"
             android:exported="true" />
         <activity
-            android:name=".scroll.ScrollViewActivity"
+            android:name=".widget.scroll.ScrollViewActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -19,6 +19,9 @@
 - common -- 通用组件
 - base -- 基础组件
 - app -- app
-
+- 命令模式
+- 跨进程通讯（AIDL,传递数据，回调）
+- js回调(作为参数传递)
+ 
 ## 依赖关系
 - base ---> net ---> common ---> webView..等等组件 ---> 壳app
