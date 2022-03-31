@@ -9,6 +9,10 @@ class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        initLoad()
+    }
+
+    private fun initLoad() {
         LoadSir.beginBuilder()
             .addCallback(ErrorCallback())
             .addCallback(EmptyCallback())

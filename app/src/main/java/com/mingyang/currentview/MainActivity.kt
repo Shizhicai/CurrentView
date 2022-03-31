@@ -16,10 +16,8 @@ class MainActivity : AppCompatActivity() {
         mDataBind?.apply {
             btnWebview.setOnClickListener {
                 val webService = BaseServiceLoader.load(IWebViewService::class.java)
-                webService?.startWebView(this@MainActivity, "https://www.baidu.com/", "测试")
+                webService?.startWebView(this@MainActivity, "file:///android_asset/demo.html", "测试", true)
             }
         }
     }
-
-
 }

@@ -2,9 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mingyang.webview">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application>
-        <activity
-            android:name=".WebViewActivity"
+        <activity android:process=":webview"
+            android:name=".ui.WebViewActivity"
             android:exported="false" />
     </application>
 

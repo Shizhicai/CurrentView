@@ -33,4 +33,8 @@ dependencies {
 
     api "com.kingja.loadsir:loadsir:${rootProject.loadsirVersion}"
     api "com.airbnb.android:lottie:${rootProject.lottieVersion}"
+    api "io.github.scwang90:refresh-layout-kernel:${rootProject.refreshVersion}"    //核心必须依赖
+    api "io.github.scwang90:refresh-footer-classics:${rootProject.refreshVersion}"    //经典加载
+    api "io.github.scwang90:refresh-header-classics:${rootProject.refreshVersion}"    //经典刷新头
+    api "com.google.code.gson:gson:${rootProject.gsonVersion}"
 }

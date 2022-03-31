@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-    <WebView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/web_view"
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/srl"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <com.scwang.smart.refresh.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.mingyang.webview.webprocess.BaseWebView
+            android:id="@+id/web_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 </layout>

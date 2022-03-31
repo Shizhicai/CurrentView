@@ -1,4 +1,4 @@
-package com.mingyang.webview.webclient
+package com.mingyang.webview.webprocess.webclient
 
 import android.graphics.Bitmap
 import android.webkit.WebResourceError
